@@ -26,7 +26,7 @@ public class FiltroDao implements metodos<Filtro>{
     private static final String SQL_UPDATE = "UPDATE cine SET nombre = ?, director = ? , pais = ?, clasificacion =?, anio=?, en_proyeccion = ? WHERE idMovie=?";
     private static final String SQL_DELETE = "DELETE FROM cine WHERE idMovie=?";
     private static final String SQL_READ = "SELECT * FROM cine WHERE idMovie=?";
-    private static final String SQL_READALL = "SELECT * cine";
+    private static final String SQL_READALL = "SELECT * from movie";
     private static final Conexion1 con = Conexion1.conectar();
 
     @Override

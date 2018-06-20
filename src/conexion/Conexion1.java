@@ -47,7 +47,7 @@ public class Conexion1 {
         user = "root";
         pass= "";
         driver = "com.mysql.jdbc.Driver";
-        url = "jdbc:mysql://localhost/filtros";
+        url = "jdbc:mysql://localhost/cine";
     }
     
     public Connection getCnx(){
