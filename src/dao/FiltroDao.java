@@ -22,10 +22,10 @@ import modelo.Filtro;
  */
 public class FiltroDao implements metodos<Filtro>{
     
-    private static final String SQL_INSERT = "INSERT INTO cine (nombre,director,pais,clasificacion,anio,en_proyeccion) VALUES (?,?,?,?,?,?)";
-    private static final String SQL_UPDATE = "UPDATE cine SET nombre = ?, director = ? , pais = ?, clasificacion =?, anio=?, en_proyeccion = ? WHERE idMovie=?";
-    private static final String SQL_DELETE = "DELETE FROM cine WHERE idMovie=?";
-    private static final String SQL_READ = "SELECT * FROM cine WHERE idMovie=?";
+    private static final String SQL_INSERT = "INSERT INTO movie (nombre,director,pais,clasificacion,anio,en_proyeccion) VALUES (?,?,?,?,?,?)";
+    private static final String SQL_UPDATE = "UPDATE movie SET nombre = ?, director = ? , pais = ?, clasificacion =?, anio=?, en_proyeccion = ? WHERE nombre=?";
+    private static final String SQL_DELETE = "DELETE FROM movie WHERE nombre=?";
+    private static final String SQL_READ = "SELECT * FROM movie WHERE nombre=?";
     private static final String SQL_READALL = "SELECT * from movie";
     private static final Conexion1 con = Conexion1.conectar();
 
@@ -41,7 +41,7 @@ public class FiltroDao implements metodos<Filtro>{
             ps.setString(3, g.getPais());
             ps.setString(4, g.getClasificacion());
             ps.setInt(5, g.getAnio());
-            ps.setBoolean(6, true);
+            ps.setBoolean(6, g.isEn_proyeccion());
             
             if(ps.executeUpdate() > 0){
                 return true;
@@ -82,6 +82,7 @@ public class FiltroDao implements metodos<Filtro>{
         try{
             ps = con.getCnx().prepareStatement(SQL_UPDATE);
             ps.setString(1, c.getNombre());
+            ps.setString(7, c.getNombre());
             ps.setString(2, c.getDirector());
             ps.setString(3, c.getPais());
             ps.setString(4, c.getClasificacion());
